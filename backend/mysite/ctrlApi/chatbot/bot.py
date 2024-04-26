@@ -2,9 +2,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_pinecone import PineconeVectorStore
-from langchain.vectorstores import Pinecone
 import os
-from pinecone import Pinecone
 from langchain_openai import ChatOpenAI
 from langchain.schema import (
     SystemMessage,
@@ -66,7 +64,7 @@ def augment_prompt(query: str):
     # get the text from the results
     source_knowledge = "\n".join([x.page_content for x in results])
     # feed into an augmented prompt
-    augmented_prompt = f"""Using the contexts below, answer the query.
+    augmented_prompt = f"""Using the contexts below, answer the query
 
     Contexts:
     {source_knowledge}
