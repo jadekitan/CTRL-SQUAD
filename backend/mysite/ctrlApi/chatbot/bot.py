@@ -11,7 +11,6 @@ from langchain.schema import (
 )
 
 
-
 from langchain_openai import OpenAIEmbeddings
 os.environ['PINECONE_API_KEY'] = 'b5eb531b-3d10-482c-9f76-2e636aeb89bb'
 os.environ['OPENAI_API_KEY'] = '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'
