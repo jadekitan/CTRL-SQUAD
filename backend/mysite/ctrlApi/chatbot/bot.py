@@ -18,9 +18,7 @@ os.environ['OPENAI_API_KEY'] = 'sk-MZwyxLdFPovg6zyEXzHVT3BlbkFJ5yEZdyeoy7c5wNvMB
 
 ## extract disease text from pdf file
 
-chat = ChatOpenAI(
-    model='gpt-3.5-turbo'
-)
+
 
 pdf_files = ['pdfdata/drugs_and_cure.pdf',
              'pdfdata/Health_Organization.pdf',
@@ -50,10 +48,16 @@ def ExtractpdfData(Pdffile):
 ## chatbot functions
 
 ## query pinecone
-vectorstore = PineconeVectorStore(index_name='linksarticles', embedding=embeddings)
 
 
-def augment_prompt(query: str):
+
+def augment_prompt(query,open_api_key,index_name):
+   
+    chat = ChatOpenAI(
+    model='gpt-3.5-turbo',
+    api_key=open_api_key
+)
+    vectorstore = PineconeVectorStore(index_name=index_name, embedding=OpenAIEmbeddings(api_key=open_api_key))
     messages = [
     SystemMessage(content="You are a health care assistant."),
     AIMessage(content="I'm great thank you. How can I help you?")
@@ -75,3 +79,5 @@ def augment_prompt(query: str):
     messages.append(prompt)
     response = chat(messages)
     return response.content
+
+
