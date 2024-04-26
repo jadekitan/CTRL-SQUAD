@@ -13,12 +13,8 @@ from langchain.schema import (
 
 from langchain_openai import OpenAIEmbeddings
 os.environ['PINECONE_API_KEY'] = 'b5eb531b-3d10-482c-9f76-2e636aeb89bb'
-os.environ['OPENAI_API_KEY'] = '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'
-
 
 ## extract disease text from pdf file
-
-
 
 pdf_files = ['pdfdata/drugs_and_cure.pdf',
              'pdfdata/Health_Organization.pdf',
@@ -28,9 +24,9 @@ pdf_files = ['pdfdata/drugs_and_cure.pdf',
              ]
 
 
-embeddings = OpenAIEmbeddings()
+#embeddings = OpenAIEmbeddings()
 
-def ExtractpdfData(Pdffile):
+def ExtractpdfData(Pdffile,open_api_key):
    loader = PyPDFLoader(Pdffile)
    text_splitter = CharacterTextSplitter(
     separator="\n\n",
@@ -40,6 +36,7 @@ def ExtractpdfData(Pdffile):
     is_separator_regex=False,
 )
    doc = text_splitter.split_documents(loader.load())
+   embeddings =OpenAIEmbeddings(api_key=open_api_key)
   
    vectostore = PineconeVectorStore.from_documents(doc, embeddings, index_name='linksarticles')
    return 

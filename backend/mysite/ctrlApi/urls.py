@@ -14,15 +14,14 @@ router.register(r'nurse',views.CreateNurseViewSet,basename='nurse')
 router.register(r'doctor',views.CreateDoctorViewSet,basename='doctor')
 router.register(r'profile',views.UserProfileViewSet,basename='UserProfileViewSet')
 router.register(r'bookambulance',views.AmbulanceBookingViewSet,basename='AmbulanceBookingViewSet')
-router.register(r'chatbot',views.ChatbotView,basename='ChatbotView')
-
 
 
 urlpatterns = [
+    path('', include('authemail.urls')),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('api/token/',views.DecoratedTokenObtainPairView.as_view(),name="token"),
     path('api/token/refresh/',views.DecoratedTokenRefreshView.as_view(),name="refresh_token"),
-    path('', include('authemail.urls')),
+    path('chatbot/',views.ChatbotView.as_view()),
 ]
 urlpatterns += router.urls

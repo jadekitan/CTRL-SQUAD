@@ -169,26 +169,9 @@ SPECTACULAR_SETTINGS = {
     "SWAGGER_UI_FAVICON_HREF":"",
 }
 
-CORS_ALLOW_METHODS = (
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
-)
 
-CORS_ALLOW_HEADERS = (
-    "accept",
-    "authorization",
-    "content-type",
-    "user-agent",
-    "x-csrftoken",
-    "x-requested-with",
-)
-CORS_ALLOW_ALL_ORIGINS = True
 
-AUTH_USER_MODEL = "healthcare.User"
+AUTH_USER_MODEL = "ctrlApi.User"
 
 
 SIMPLE_JWT = {
