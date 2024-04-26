@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from . models import PatientAppointment,Organization,Ambulance,Doctor_Nurce_Profile,User,UserProfile,AmbulanceBooking
+from .models import PatientAppointment,Organization,Ambulance,Doctor_Nurce_Profile,User,UserProfile,AmbulanceBooking
 
 
 
