@@ -38,9 +38,8 @@ from .chatbot.bot import augment_prompt
 
 
 
-class SummarizerView(GenericAPIView):
+class ChatbotView(GenericAPIView):
     serializer_class = ChatbotSerializer
-    #permission_classes = [permissions.IsAuthenticated]
     @extend_schema(summary='Send a Message', methods=["GET"],description='chat with healthcare asistance',filters=True,tags=['Chatbot'])
     def post(self,request,format=None):
         serializer = ChatbotSerializer(data=self.request.data)
@@ -57,6 +56,7 @@ class SummarizerView(GenericAPIView):
 
 
 
+# create create_doctor_or_nurse_profile on signer
 @receiver(post_save, sender=User)
 def create_doctor_or_nurse_profile(sender, instance, created, **kwargs):
     if created:
