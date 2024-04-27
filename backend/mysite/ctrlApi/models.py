@@ -63,6 +63,8 @@ class Organization(models.Model):
     banner = models.ImageField(upload_to='upload/banner')
     logo = models.ImageField(upload_to='upload/logo')
     date_created = models.DateField(auto_now_add=True)
+    lat = models.FloatField()
+    long = models.FloatField()
     
     def __str__(self) -> str:
         return self.organization_name

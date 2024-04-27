@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-$m84o=1)fy_du)p-k^l)&aoatcwdqt#zin#&bu36ei!cg*!cvw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.0.100']
 
 
 # Application definition
@@ -84,9 +84,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+   'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':'ctrl_squard',
+        "USER": "root",
+        "PASSWORD": "84563320owo",
+        "HOST": "localhost",
+        "PORT": "3306",
     }
 }
 
@@ -169,7 +173,24 @@ SPECTACULAR_SETTINGS = {
     "SWAGGER_UI_FAVICON_HREF":"",
 }
 
+# CORS_ALLOW_METHODS = (
+#     "DELETE",
+#     "GET",
+#     "OPTIONS",
+#     "PATCH",
+#     "POST",
+#     "PUT",
+# )
 
+CORS_ALLOW_HEADERS = (
+    "accept",
+    "authorization",
+    "content-type",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+)
+CORS_ALLOW_ALL_ORIGINS = True
 
 AUTH_USER_MODEL = "ctrlApi.User"
 

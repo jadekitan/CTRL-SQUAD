@@ -3,6 +3,7 @@ from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework import status
+from rest_framework.views import APIView
 from  . models import (User,Doctor_Nurce_Profile,PatientAppointment,Ambulance,Organization,UserProfile,AmbulanceBooking)
 # Create your views here.
 from rest_framework import status
@@ -36,7 +37,26 @@ from rest_framework import serializers, status
 from drf_spectacular.utils import extend_schema
 from .chatbot.bot import augment_prompt
 
+## ## get Total Doctor
+class TotalDoctor(APIView):
+    def get(self, request):
+        # Get the total count of customers
+        total_staff = Doctor_Nurce_Profile.objects.count()
+        return Response({'total_staff': total_staff})
+    
 
+# class TotalDoctor(APIView):
+#     def get(self, request):
+#         # Get the total count of customers
+#         total_staff = Doctor_Nurce_Profile.objects.count()
+#         return Response({'total_staff': total_staff})
+    
+## get total PatientAppointment
+class PatientAppointmentCount(APIView):
+    def get(self, request):
+        # Get the total count of customers
+        total_appointmentCount = PatientAppointment.objects.count()
+        return Response({'total_patient_appointmentCount': total_appointmentCount})
 
 class ChatbotView(GenericAPIView):
     serializer_class = ChatbotSerializer

@@ -22,6 +22,8 @@ urlpatterns = [
     path('api/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('api/token/',views.DecoratedTokenObtainPairView.as_view(),name="token"),
     path('api/token/refresh/',views.DecoratedTokenRefreshView.as_view(),name="refresh_token"),
+    path('totalappointment',views.PatientAppointmentCount.as_view()),
+    path('totaldoctor',views.TotalDoctor.as_view()),
     path('chatbot/',views.ChatbotView.as_view()),
 ]
 urlpatterns += router.urls
