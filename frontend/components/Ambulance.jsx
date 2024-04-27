@@ -1,20 +1,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
-
-// const reset = () => {
-//   setFullname("");
-//   setPhone_number("");
-//   setCircumstance("");
-//   setAddress("");
-//   setCity("");
-//   setState("");
-//   setStreet("");
-//   setBooking("");
-// };
+// import TextItem from "./TextItem.jsx";
 
 const Ambulance = () => {
   const initialValues = {
-    fullname: "",
+    victim_name: "",
     phone_number: "",
     circumstance: "",
     address: "",
@@ -35,8 +25,18 @@ const Ambulance = () => {
       [name]: value,
     });
   };
+
+  // const [selectedTexts, setSelectedTexts] = useState([]);
+
+  // const handleTextClick = (text) => {
+  //   if (selectedTexts.includes(text)) {
+  //     setSelectedTexts(selectedTexts.filter((item) => item !== text));
+  //   } else {
+  //     setSelectedTexts([...selectedTexts, text]);
+  //   }
+  // };
   return (
-    <main className=" w-full inline-flex items-center gap-14 bg-white">
+    <main className=" w-full inline-flex items-center gap-14 bg-white overflow-hidden">
       <div className=" w-[630px] rounded-se-[40px] rounded-ee-[40px] bg-black">
         <Image
           src="/illustration/ambulance.avif"
@@ -52,12 +52,13 @@ const Ambulance = () => {
           </h2>
         </div>
         <div className=" flex flex-col justify-start gap-[10px]">
-          <label className=" text-black">Fullname</label>
+          <label className=" text-black">Victim's Name</label>
           <input
             type="text"
-            value={values.fullname}
+            value={values.victim_name}
             onChange={handleInputChange}
-            label="Fullname"
+            name="victim_name"
+            label="Victim Name"
             className=" w-[444px] h-[35px] text-black rounded-lg border border-[#DFDFDF] px-4"
           />
         </div>
@@ -67,17 +68,8 @@ const Ambulance = () => {
             type="text"
             value={values.phone_number}
             onChange={handleInputChange}
+            name="phone_number"
             label="Phone Number"
-            className=" w-[444px] h-[35px] text-black rounded-lg border border-[#DFDFDF] px-4"
-          />
-        </div>
-        <div className=" flex flex-col justify-start gap-[10px]">
-          <label className=" text-black">Circumstances</label>
-          <input
-            type="textArea"
-            value={values.circumstance}
-            onChange={handleInputChange}
-            label="Circumstance"
             className=" w-[444px] h-[35px] text-black rounded-lg border border-[#DFDFDF] px-4"
           />
         </div>
@@ -87,6 +79,7 @@ const Ambulance = () => {
             type="text"
             value={values.address}
             onChange={handleInputChange}
+            name="address"
             label="Address"
             className=" w-[444px] h-[35px] text-black rounded-lg border border-[#DFDFDF] px-4"
           />
@@ -98,6 +91,7 @@ const Ambulance = () => {
               type="text"
               value={values.city}
               onChange={handleInputChange}
+              name="city"
               label="Address"
               className=" w-full h-[35px] text-black rounded-lg border border-[#DFDFDF] px-4"
             />
@@ -108,6 +102,7 @@ const Ambulance = () => {
               type="text"
               value={values.state}
               onChange={handleInputChange}
+              name="state"
               label="Address"
               className=" w-full h-[35px] text-black rounded-lg border border-[#DFDFDF] px-4"
             />
@@ -119,9 +114,33 @@ const Ambulance = () => {
             type="text"
             value={values.booking}
             onChange={handleInputChange}
+            name="booking"
             label="Booking"
             className=" w-[444px] h-[35px] text-black rounded-lg border border-[#DFDFDF] px-4"
           />
+        </div>
+        <div className=" flex flex-col justify-start gap-[10px]">
+          <label className=" text-black">Circumstances</label>
+          {/* <div>
+            <TextItem
+              text="Text 1"
+              onClick={handleTextClick}
+              selected={selectedTexts.includes("Text 1")}
+            />
+            <TextItem
+              text="Text 2"
+              onClick={handleTextClick}
+              selected={selectedTexts.includes("Text 2")}
+            />
+          </div> */}
+          <textarea
+            type="text"
+            value={values.circumstance}
+            onChange={handleInputChange}
+            name="circumstance"
+            label="Circumstance"
+            className=" w-[444px] h-[50px] text-black rounded-lg border border-[#DFDFDF] px-4 py-2"
+          ></textarea>
         </div>
       </form>
     </main>
