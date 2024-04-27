@@ -6,7 +6,7 @@ const Ambulance = () => {
   const initialValues = {
     victim_name: "",
     phone_number: "",
-    circumstance: "",
+    conditions: "",
     address: "",
     city: "",
     state: "",
@@ -84,7 +84,7 @@ const Ambulance = () => {
             className=" w-[444px] h-[35px] text-black rounded-lg border border-[#DFDFDF] px-4"
           />
         </div>
-        <div className=" w-[444px] flex items-start gap-2">
+        <div className=" w-[444px] flex items-start gap-3">
           <div className=" w-full">
             <label className=" text-black">City</label>
             <input
@@ -108,20 +108,10 @@ const Ambulance = () => {
             />
           </div>
         </div>
-        <div className=" flex flex-col justify-start gap-[10px]">
-          <label className=" text-black">Booking</label>
-          <input
-            type="text"
-            value={values.booking}
-            onChange={handleInputChange}
-            name="booking"
-            label="Booking"
-            className=" w-[444px] h-[35px] text-black rounded-lg border border-[#DFDFDF] px-4"
-          />
-        </div>
-        <div className=" flex flex-col justify-start gap-[10px]">
-          <label className=" text-black">Circumstances</label>
-          {/* <div>
+        <div className=" w-[444px] flex items-start gap-3">
+          <div className=" flex flex-col justify-start gap-[10px]">
+            <label className=" text-black">Condition</label>
+            {/* <div>
             <TextItem
               text="Text 1"
               onClick={handleTextClick}
@@ -133,15 +123,33 @@ const Ambulance = () => {
               selected={selectedTexts.includes("Text 2")}
             />
           </div> */}
-          <textarea
-            type="text"
-            value={values.circumstance}
-            onChange={handleInputChange}
-            name="circumstance"
-            label="Circumstance"
-            className=" w-[444px] h-[50px] text-black rounded-lg border border-[#DFDFDF] px-4 py-2"
-          ></textarea>
+            <input
+              type="text"
+              value={values.conditions}
+              onChange={handleInputChange}
+              name="condition"
+              label="condition"
+              className=" w-full h-[35px] text-black rounded-lg border border-[#DFDFDF] px-4 py-2"
+            />
+          </div>
+          <div className=" flex flex-col justify-start gap-[10px]">
+            <label className=" text-black">Booking</label>
+            <input
+              type="text"
+              value={values.booking}
+              onChange={handleInputChange}
+              name="booking"
+              label="Booking"
+              className=" w-full h-[35px] text-black rounded-lg border border-[#DFDFDF] px-4"
+            />
+          </div>
         </div>
+        <button
+          type="submit"
+          className=" w-full px-[10px] py-[10px] bg-black text-white rounded-[10px]"
+        >
+          Submit
+        </button>
       </form>
     </main>
   );
