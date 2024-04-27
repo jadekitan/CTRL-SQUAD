@@ -39,6 +39,10 @@ const SignUpForm = () => {
   };
 
   return (
+    <>
+    <div className="fixed left-[-7em] bottom-[-7em] h-[26em] w-[26em] bg-gradient-to-b from-[#78b6f480]  to-[#201cf780] rounded-full transform rotate-280 z-10">
+   </div>
+
     <div className="flex items-center shadow-lg justify-center h-screen ">
       <form className="bg-gray-50 shadow-md rounded px-24  pt-12 pb-12 mb-4" onSubmit={handleSubmit}>
         <h2 className="block text-blue-600 text-2xl font-bold mb-6 text-center">Auxilium Healthcare</h2>
@@ -72,11 +76,12 @@ const SignUpForm = () => {
           </button>
         </div>
         <p className="text-sm mt-4 font-light text-gray-500">
-                Already have an account? <a href="/login" className="font-medium text-blue-600 hover:underline">Login here</a>
+                Already have an account? <a href="/admin/login" className="font-medium text-blue-600 hover:underline">Login here</a>
         </p>
       </form>
      
     </div>
+    </>
   );
 };
 
